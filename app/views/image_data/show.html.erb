@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @image_datum.filename %>
+</p>
+
+<p>
+  <strong>Data point:</strong>
+  <%= @image_datum.data_point %>
+</p>
+
+<%= link_to 'Edit', edit_image_datum_path(@image_datum) %> |
+<%= link_to 'Back', image_data_path %>

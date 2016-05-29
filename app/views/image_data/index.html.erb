@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Image Data</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th>Data point</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @image_data.each do |image_datum| %>
+      <tr>
+        <td><%= image_datum.filename %></td>
+        <td><%= image_datum.data_point %></td>
+        <td><%= link_to 'Show', image_datum %></td>
+        <td><%= link_to 'Edit', edit_image_datum_path(image_datum) %></td>
+        <td><%= link_to 'Destroy', image_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Image datum', new_image_datum_path %>
