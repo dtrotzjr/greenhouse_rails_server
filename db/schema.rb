@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160529020220) do
+ActiveRecord::Schema.define(version: 20160529191804) do
 
   create_table "data_points", force: :cascade do |t|
     t.integer "timestamp"
@@ -35,5 +35,17 @@ ActiveRecord::Schema.define(version: 20160529020220) do
   end
 
   add_index "sensor_data", ["data_point_id"], name: "index_sensor_data_on_data_point_id"
+
+  create_table "system_data", force: :cascade do |t|
+    t.float   "soc_temperature"
+    t.float   "wlan0_link_quality"
+    t.integer "wlan0_signal_level"
+    t.integer "storage_total_size"
+    t.integer "storage_used"
+    t.integer "storage_avail"
+    t.integer "data_point_id"
+  end
+
+  add_index "system_data", ["data_point_id"], name: "index_system_data_on_data_point_id"
 
 end

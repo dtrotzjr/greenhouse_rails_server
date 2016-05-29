@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Soc temperature:</strong>
+  <%= @system_datum.soc_temperature %>
+</p>
+
+<p>
+  <strong>Data point:</strong>
+  <%= @system_datum.data_point %>
+</p>
+
+<%= link_to 'Edit', edit_system_datum_path(@system_datum) %> |
+<%= link_to 'Back', system_data_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :system_data
   resources :sensor_data
   resources :image_data
   resources :data_points
