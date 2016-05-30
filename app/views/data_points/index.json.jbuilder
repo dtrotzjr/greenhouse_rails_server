@@ -1,6 +1,9 @@
-json.array!(@data_points) do |data_point|
-  json.ignore_nil!
-  json.extract! data_point, :id, :timestamp, :synchronized
+json.ignore_nil!
+json.data_points @data_points do |data_point|
+  json.id :id
+  json.timestamp :timestamp
+  json.synchronize :synchronized
+
   json.sensor_data  data_point.sensor_data do |sensor_datum|
     json.id sensor_datum.id
     json.sensor_id sensor_datum.sensor_id
