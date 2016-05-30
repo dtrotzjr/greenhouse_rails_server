@@ -1,8 +1,8 @@
 json.ignore_nil!
 json.data_points @data_points do |data_point|
-  json.id :id
-  json.timestamp :timestamp
-  json.synchronize :synchronized
+  json.id data_point.id
+  json.timestamp data_point.timestamp
+  json.synchronize data_point.synchronized
 
   json.sensor_data  data_point.sensor_data do |sensor_datum|
     json.id sensor_datum.id
