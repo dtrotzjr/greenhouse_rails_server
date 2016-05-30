@@ -4,11 +4,19 @@ class DataPointsController < ApplicationController
   # GET /data_points
   # GET /data_points.json
   def index
-    params.permit(:after_timestamp)
+    params.permit(:after_timestamp, :limit)
     if params[:after_timestamp].nil?
-      @data_points = DataPoint.all
+      if params[:limit].nil?
+        @data_points = DataPoint.all
+      else
+        @data_points = DataPoint.all.limit(params[:limit])
+      end
     else
-      @data_points = DataPoint.where(["timestamp > ?", params[:after_timestamp]])
+      if params[:limit].nil?
+        @data_points = DataPoint.where(["timestamp > ?", params[:after_timestamp]])
+      else
+        @data_points = DataPoint.where(["timestamp > ?", params[:after_timestamp]]).limit(params[:limit])
+      end
     end
   end
 
