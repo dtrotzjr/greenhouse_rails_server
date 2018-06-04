@@ -1,3 +1,3 @@
-class SystemDatum < ActiveRecord::Base
+class SystemDatum < ApplicationRecord
   belongs_to :data_point
 end
